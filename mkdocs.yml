@@ -1,0 +1,128 @@
+site_name: Name
+docs_dir: docs
+site_dir: site
+copyright: Copyright &copy; 2024 Benjamin Klaric
+repo_name: mkdocs_template
+repo_url: https://github.com/bklaric1/mkdocs_template
+edit_uri: docs/blob/dev/docs/
+
+plugins:
+  - caption:
+      cross_reference_text: '{page_title}/{local_ref}'
+      table: 
+        enable: true
+        start_index: 1
+        increment_index: 1
+        position: bottom
+        default_id: '_table-{index}'
+        reference_text: ''
+        caption_prefix: ''
+        markdown_identifier: 'Table:'
+        allow_indented_caption: True
+      figure: 
+        enable: true
+        start_index: 1
+        increment_index: 1
+        position: bottom
+        default_id: '_figure-{index}'
+        reference_text: ''
+        caption_prefix: ''
+        markdown_identifier: 'Figure:'
+        allow_indented_caption: True
+        ignore_alt: False
+  - search
+  - git-revision-date-localized:
+      type: date
+      fallback_to_build_date: true
+  - git-authors
+  - literate-nav:
+      nav_file: NAV.md
+      tab_length: 2
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+  - with-pdf:
+      author: Benjamin Klaric
+      copyright: Copyright &copy; 2024 Benjamin Klaric
+      cover: true
+      back_cover: true
+      cover_title: Name
+      cover_subtitle: Name
+      enabled_if_env: PDF
+      exclude_pages:
+        - 'about/'
+
+theme:
+  name: material
+  custom_dir: mkdocs-config/overrides
+  language: de
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+
+  features:
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.indexes
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.action.view
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.footer
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      use_pygments: true
+      pygments_lang_class: true
+      line_spans: __span
+      linenums: false
+      linenums_style: pymdownx-inline
+      anchor_linenums: true
+      auto_title: false
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - footnotes
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - abbr
+  - toc:
+      permalink: true
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
